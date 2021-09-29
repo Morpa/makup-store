@@ -54,7 +54,7 @@ const GlobalStyles: GlobalStyleComponent<
     }
   }
 
-  ${({ theme }) => css`
+  ${({ theme, removeBg }) => css`
     html {
       font-size: 62.5%;
     }
@@ -62,6 +62,11 @@ const GlobalStyles: GlobalStyleComponent<
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
+
+      ${!removeBg &&
+      css`
+        background-color: ${theme.colors.background};
+      `}
     }
 
     body::-webkit-scrollbar {
@@ -79,5 +84,4 @@ const GlobalStyles: GlobalStyleComponent<
     }
   `}
 `
-
 export default GlobalStyles

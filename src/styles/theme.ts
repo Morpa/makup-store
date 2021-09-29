@@ -36,7 +36,8 @@ export default {
     hover: '#212b54',
     title: '#BFC4D3',
     subtitle: '#9e9e9e',
-    subtext: 'rgb(88, 88, 88)'
+    subtext: 'rgb(88, 88, 88)',
+    white: '#ffffff'
   },
 
   spacings: {
