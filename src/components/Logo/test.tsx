@@ -7,7 +7,7 @@ describe('<Logo />', () => {
     render(<Logo />)
     expect(screen.getByLabelText(/Movies Explorer/i).parentElement).toHaveStyle(
       {
-        width: '21rem'
+        width: '16rem'
       }
     )
   })
@@ -16,7 +16,7 @@ describe('<Logo />', () => {
     render(<Logo size="large" />)
     expect(screen.getByLabelText(/Movies Explorer/i).parentElement).toHaveStyle(
       {
-        width: '26rem'
+        width: '20rem'
       }
     )
   })
@@ -25,7 +25,7 @@ describe('<Logo />', () => {
     render(<Logo hideOnMobile />)
     expect(
       screen.getByLabelText(/Movies Explorer/i).parentElement
-    ).toHaveStyleRule('width', '7rem', {
+    ).toHaveStyleRule('width', '5.8rem', {
       media: '(max-width: 768px)'
     })
   })

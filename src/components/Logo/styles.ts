@@ -5,22 +5,26 @@ import { LogoProps } from '.'
 
 const wrapperModifiers = {
   normal: () => css`
-    width: 21rem;
+    width: 16rem;
+    height: 3.3rem;
   `,
 
   large: () => css`
-    width: 26rem;
+    width: 20rem;
+    height: 5.9rem;
   `,
 
   hideOnMobile: () => css`
     ${media.lessThan('medium')`
-      width: 7rem;
+      width: 5.8rem;
+      height: 4.5rem;
+      align-items: center;
+
 
       svg {
         height: 5rem;
         pointer-events: none;
       }
-
       .text {
         display: none;
       }

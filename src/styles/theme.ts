@@ -28,16 +28,28 @@ export default {
   colors: {
     background: '#141620',
     shape: '#090B10',
-    gradient:
-      'linear-gradient(90deg, rgba(0,53,157,1) 5%, rgba(0,111,255,1) 50%, rgba(63,204,255,1) 100%)',
-    primary: 'rgba(0,53,157,1)',
+    gradient: 'linear-gradient(90deg, #00359d 5%, #006fff 50%, #3fccff 100%)',
+    primary: '#00359d',
     secondary: '#D6AE2F',
     border: '#212b54',
     hover: '#212b54',
     title: '#BFC4D3',
     subtitle: '#9e9e9e',
-    subtext: 'rgb(88, 88, 88)',
-    white: '#ffffff'
+    subtext: '#585858',
+    mainBg: '#06092B',
+    lightBg: '#F2F2F2',
+    white: '#FAFAFA',
+    black: '#030517',
+    lightGray: '#EAEAEA',
+    gray: '#8F8F8F',
+    darkGray: '#2E2F42',
+    yellow: '#FF9F1C',
+    red: '#FF4040',
+    green: '#2EC4B6',
+    dark: '#0A1014',
+    grey: '#1B2329',
+    midGrey: '#353F4C',
+    lightGrey: '#7A8C99'
   },
 
   spacings: {
