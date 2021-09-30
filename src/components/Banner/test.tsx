@@ -1,6 +1,6 @@
 import { render, screen } from 'utils/test-utils'
 
-import Banner from '.'
+import { Banner } from '.'
 
 const props = {
   img: 'https://source.unsplash.com/user/morpa/1042x580',

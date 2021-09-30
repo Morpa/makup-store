@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Banner, { BannerProps } from '.'
+import { Banner, BannerProps } from '.'
 
 export default {
   title: 'Banner',
@@ -12,7 +12,7 @@ export default {
   args: {
     img: 'https://source.unsplash.com/user/morpa/1042x580',
     title: 'Deadpool',
-    subtitle: '<p>Watch the new movie',
+    subtitle: '<p>Watch the new movie</p>',
     buttonLabel: 'More info',
     buttonLink: '/movies/deadpool'
   },
@@ -22,12 +22,6 @@ export default {
 } as Meta
 
 export const Default: Story<BannerProps> = (args) => (
-  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
-    <Banner {...args} />
-  </div>
-)
-
-export const WithRibbon: Story<BannerProps> = (args) => (
   <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
     <Banner {...args} />
   </div>

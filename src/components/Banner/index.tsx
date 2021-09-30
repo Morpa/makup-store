@@ -12,7 +12,7 @@ export type BannerProps = {
   buttonLink: string
 }
 
-const Banner = ({
+export const Banner = ({
   img,
   title,
   subtitle,
@@ -33,5 +33,3 @@ const Banner = ({
     </S.Caption>
   </S.Wrapper>
 )
-
-export default Banner
