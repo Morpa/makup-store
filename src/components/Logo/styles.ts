@@ -6,12 +6,12 @@ import { LogoProps } from '.'
 const wrapperModifiers = {
   normal: () => css`
     width: 16rem;
-    height: 3.3rem;
+    height: 9.3rem;
   `,
 
   large: () => css`
     width: 20rem;
-    height: 5.9rem;
+    height: 11rem;
   `,
 
   hideOnMobile: () => css`

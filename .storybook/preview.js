@@ -6,15 +6,15 @@ import theme from 'styles/theme'
 
 export const parameters = {
   backgrounds: {
-    default: 'movie-dark',
+    default: 'makeup-dark',
     values: [
       {
-        name: 'movie-light',
+        name: 'makeup-light',
         value: theme.colors.white
       },
       {
-        name: 'movie-dark',
-        value: theme.colors.background
+        name: 'makeup-dark',
+        value: theme.colors.mainBg
       }
     ]
   }

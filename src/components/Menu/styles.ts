@@ -5,7 +5,6 @@ export const Wrapper = styled.menu`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: ${theme.spacings.small} 0;
     position: relative;
     z-index: ${theme.layers.menu};
@@ -15,7 +14,7 @@ export const Wrapper = styled.menu`
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
     position: absolute;
-    left: 53%;
+    left: 50%;
     transform: translateX(-50%);
   `}
 `
@@ -151,5 +150,13 @@ export const RegisterBox = styled.div`
       margin: ${theme.spacings.xxsmall} 0;
       font-size: ${theme.font.sizes.xsmall};
     }
+  `}
+`
+
+export const CreateAccount = styled.a`
+  ${({ theme }) => css`
+    text-decoration: none;
+    color: ${theme.colors.primary};
+    border-bottom: 0.2rem solid ${theme.colors.primary};
   `}
 `

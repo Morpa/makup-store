@@ -65,22 +65,8 @@ const GlobalStyles: GlobalStyleComponent<
 
       ${!removeBg &&
       css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.mainBg};
       `}
-    }
-
-    body::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    body::-webkit-scrollbar-track {
-      background: ${theme.colors.shape};
-    }
-
-    body::-webkit-scrollbar-thumb {
-      background-color: ${theme.colors.primary};
-      border-radius: 20px;
-      border: 3px solid ${theme.colors.primary};
     }
   `}
 `

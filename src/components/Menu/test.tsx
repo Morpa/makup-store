@@ -16,8 +16,10 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
 
     expect(
-      screen.getByRole('img', { name: /movies explorer/i })
+      screen.getByRole('img', { name: /makeup store/i })
     ).toBeInTheDocument()
+
+    expect(screen.getAllByLabelText(/shopping cart/i)).toHaveLength(1)
   })
 
   it('should handle the open/close mobile menu', () => {
@@ -40,5 +42,17 @@ describe('<Menu />', () => {
     expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
 
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
+  })
+
+  it('should show register box when logged out', () => {
+    render(<Menu />)
+
+    expect(screen.queryByText(/my profile/i)).not.toBeInTheDocument()
+
+    expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument()
+
+    expect(screen.getByText(/sign up/i)).toBeInTheDocument()
+
+    expect(screen.getAllByText(/sign in/i)).toHaveLength(2)
   })
 })

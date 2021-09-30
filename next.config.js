@@ -8,6 +8,6 @@ module.exports = withPWA({
     disable: !isProd
   },
   images: {
-    domains: ['localhost', 'https://image.tmdb.org/']
+    domains: ['localhost', 's3.amazonaws.com','sephora.pt']
   }
 })

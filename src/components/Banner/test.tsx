@@ -3,11 +3,10 @@ import { render, screen } from 'utils/test-utils'
 import { Banner } from '.'
 
 const props = {
-  img: 'https://source.unsplash.com/user/morpa/1042x580',
-  title: 'Deadpool',
-  subtitle: '<p>Watch the new movie</p>',
-  buttonLabel: 'More info',
-  buttonLink: '/movies/deadpool'
+  img: 'https://source.unsplash.com/user/morpa/1040x580',
+  title: 'Ultra HD Face Essentials Palette',
+  buttonLabel: 'Buy now',
+  buttonLink: '/products/essentials-palette'
 }
 
 describe('<Banner />', () => {
@@ -15,14 +14,12 @@ describe('<Banner />', () => {
     const { container } = render(<Banner {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /Deadpool/i })
+      screen.getByRole('heading', { name: /Ultra HD Face Essentials Palette/i })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /Watch the new movie/i })
+      screen.getByRole('img', { name: /Ultra HD Face Essentials Palette/i })
     ).toBeInTheDocument()
-
-    expect(screen.getByRole('img', { name: /Deadpool/i })).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })

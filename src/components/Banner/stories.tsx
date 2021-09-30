@@ -4,17 +4,11 @@ import { Banner, BannerProps } from '.'
 export default {
   title: 'Banner',
   component: Banner,
-  argTypes: {
-    ribbon: {
-      type: 'string'
-    }
-  },
   args: {
-    img: 'https://source.unsplash.com/user/morpa/1042x580',
-    title: 'Deadpool',
-    subtitle: '<p>Watch the new movie</p>',
-    buttonLabel: 'More info',
-    buttonLink: '/movies/deadpool'
+    img: 'https://source.unsplash.com/user/morpa/1040x580',
+    title: 'Ultra HD Face Essentials Palette',
+    buttonLabel: 'Buy now',
+    buttonLink: '/products/essentials-palette'
   },
   parameters: {
     layout: 'fullscreen'
