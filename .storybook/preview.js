@@ -6,14 +6,14 @@ import theme from 'styles/theme'
 
 export const parameters = {
   backgrounds: {
-    default: 'cine-dark',
+    default: 'movie-dark',
     values: [
       {
-        name: 'cine-light',
+        name: 'movie-light',
         value: theme.colors.white
       },
       {
-        name: 'cine-dark',
+        name: 'movie-dark',
         value: theme.colors.background
       }
     ]
