@@ -95,7 +95,6 @@ exports[`<Banner /> should render correctly 1`] = `
     <img
       alt="Ultra HD Face Essentials Palette"
       layout="fill"
-      placeholder="blur"
       src="https://source.unsplash.com/user/morpa/1040x580"
     />
   </div>

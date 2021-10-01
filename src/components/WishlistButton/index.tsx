@@ -1,3 +1,4 @@
+import { FavoriteBorder } from '@styled-icons/material-outlined'
 import Button, { ButtonProps } from 'components/Button'
 
 type WishlistButtonProps = {
@@ -12,9 +13,7 @@ export const WishlistButton = ({ size = 'small' }: WishlistButtonProps) => {
       }}
       minimal
       size={size}
-      style={{ filter: 'none' }}
-    >
-      Add to Wishlist
-    </Button>
+      icon={<FavoriteBorder aria-label="Add to Wishlist" />}
+    />
   )
 }

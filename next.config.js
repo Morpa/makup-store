@@ -8,6 +8,6 @@ module.exports = withPWA({
     disable: !isProd
   },
   images: {
-    domains: ['localhost', 's3.amazonaws.com']
+    domains: ['localhost', 's3.amazonaws.com', 'cdn.shopify.com']
   }
 })

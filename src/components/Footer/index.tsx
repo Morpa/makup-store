@@ -62,7 +62,7 @@ export const Footer = () => (
           <Link href="/">
             <a>Home</a>
           </Link>
-          <Link href="/games">
+          <Link href="/products">
             <a>Store</a>
           </Link>
           <Link href="/search">
