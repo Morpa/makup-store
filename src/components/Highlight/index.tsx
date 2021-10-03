@@ -22,7 +22,7 @@ export const Highlight = ({
   buttonLink,
   alignment = 'right'
 }: HighlightProps) => (
-  <S.Wrapper alignment={alignment} data-cy="highlight">
+  <S.Wrapper alignment={alignment}>
     <Image src={backgroundImage} alt={`${title} background`} layout="fill" />
     {!!floatImage && (
       <S.FloatImageWrapper>
