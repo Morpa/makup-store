@@ -34,7 +34,7 @@ describe('<ProductCard />', () => {
       `/product/${props.id}`
     )
 
-    expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/add to cart/i)).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })

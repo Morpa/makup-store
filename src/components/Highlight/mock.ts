@@ -3,6 +3,5 @@ export default {
   subtitle: 'The best lippie ever!',
   backgroundImage: 'https://source.unsplash.com/user/morpa/1040x318',
   buttonLabel: 'Buy now',
-  buttonLink: '/products/xpto',
-  alignment: 'left'
+  buttonLink: '/products/xpto'
 }

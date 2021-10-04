@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { CartButton } from 'components/CartButton'
-import { WishlistButton } from 'components/WishlistButton'
 
 import formatPrice from 'utils/format-price'
 
@@ -43,9 +42,6 @@ export const ProductCard = ({
           <S.Brand>{brand}</S.Brand>
         </S.Info>
       </Link>
-      <S.FavButton>
-        <WishlistButton />
-      </S.FavButton>
       <S.BuyBox>
         <S.Price>{formatPrice(Number(price))}</S.Price>
         <CartButton />

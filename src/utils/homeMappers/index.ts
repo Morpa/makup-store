@@ -7,7 +7,7 @@ export const productsMapper = (products: ProductApiResponse[]) => {
           id: item.id,
           title: item.name,
           brand: item.brand?.toLocaleUpperCase(),
-          img: `http:${item.api_featured_image}`,
+          img: `https:${item.api_featured_image}`,
           price:
             Number(item.price) > 0 ? item.price : Math.floor(Math.random() * 50)
         }
@@ -19,7 +19,7 @@ export const bannersMapper = (products: ProductApiResponse[]) => {
   return products
     ? products.map((item) => {
         return {
-          img: `http:${item.api_featured_image}`,
+          img: `https:${item.api_featured_image}`,
           title: item.name,
           buttonLabel: 'Buy now',
           buttonLink: `/product/${item.id}`
@@ -40,7 +40,7 @@ export const highlightMapper = (
         return {
           title,
           subtitle,
-          backgroundImage: `http:${item.api_featured_image}`,
+          backgroundImage: `https:${item.api_featured_image}`,
           buttonLabel: 'Buy now',
           buttonLink: `/product/${item.id}`,
           alignment

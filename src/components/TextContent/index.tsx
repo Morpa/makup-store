@@ -7,8 +7,8 @@ export type TextContentProps = {
   content: string
 }
 
-const TextContent = ({ title, content }: TextContentProps) => (
-  <S.Wrapper data-cy="content">
+export const TextContent = ({ title, content }: TextContentProps) => (
+  <S.Wrapper>
     {!!title && (
       <Heading lineLeft lineColor="secondary">
         {title}
@@ -18,5 +18,3 @@ const TextContent = ({ title, content }: TextContentProps) => (
     <div dangerouslySetInnerHTML={{ __html: content }} />
   </S.Wrapper>
 )
-
-export default TextContent

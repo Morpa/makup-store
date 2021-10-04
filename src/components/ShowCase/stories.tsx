@@ -38,11 +38,11 @@ WithoutHighlight.args = {
   products: productsMock
 }
 
-export const WithoutGames: Story<ShowCaseProps> = (args) => (
+export const WithoutProducts: Story<ShowCaseProps> = (args) => (
   <ShowCase {...args} />
 )
 
-WithoutGames.args = {
+WithoutProducts.args = {
   title: 'Most Popular',
   highlight: highlightMock
 }

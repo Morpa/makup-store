@@ -27,7 +27,7 @@ describe('productsMapper', () => {
         id: 1,
         title: 'name',
         brand: 'BRAND',
-        img: 'http://api_featured_image',
+        img: 'https://api_featured_image',
         price: '5'
       }
     ])
@@ -62,7 +62,7 @@ describe('bannersMapper', () => {
     expect(bannersMapper(product)).toStrictEqual([
       {
         title: 'name',
-        img: 'http://api_featured_image',
+        img: 'https://api_featured_image',
         buttonLabel: 'Buy now',
         buttonLink: '/product/1'
       }
@@ -101,7 +101,7 @@ describe('highlightMapper', () => {
       {
         title: 'Upcoming',
         subtitle: 'New collection',
-        backgroundImage: 'http://api_featured_image',
+        backgroundImage: 'https://api_featured_image',
         buttonLabel: 'Buy now',
         buttonLink: '/product/1',
         alignment: 'left'

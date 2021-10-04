@@ -8,7 +8,7 @@ export default {
     img: 'https://source.unsplash.com/user/morpa/1040x580',
     title: 'Ultra HD Face Essentials Palette',
     buttonLabel: 'Buy now',
-    buttonLink: '/products/essentials-palette'
+    buttonLink: '/product/essentials-palette'
   },
   parameters: {
     layout: 'fullscreen'

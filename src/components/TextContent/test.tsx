@@ -1,6 +1,6 @@
 import { render, screen } from 'utils/test-utils'
 
-import TextContent from '.'
+import { TextContent } from '.'
 
 const props = {
   title: 'Description',
