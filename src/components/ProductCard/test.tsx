@@ -9,7 +9,8 @@ const props = {
   title: 'Lippie Pencil',
   brand: 'Colourpop',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: '5.0'
+  price: '5.0',
+  rating: 4
 }
 
 describe('<ProductCard />', () => {

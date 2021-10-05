@@ -20,7 +20,7 @@ export type ProductTemplateProps = {
   upcomingHighlightTitle: string
   upcomingHighlight: HighlightProps
   upcomingProducts: ProductCardProps[]
-  gallery?: GalleryColorsProps[]
+  gallery: GalleryColorsProps[]
 }
 
 export const Product = ({
@@ -72,7 +72,7 @@ export const Product = ({
       </S.SectionProductInfo>
 
       <S.SectionGallery>
-        {!!gallery && <Gallery items={gallery} />}
+        {gallery?.length > 0 && <Gallery items={gallery} />}
       </S.SectionGallery>
 
       <S.SectionDescription>

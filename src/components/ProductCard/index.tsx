@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { RatingView } from 'react-simple-star-rating'
 
 import { CartButton } from 'components/CartButton'
 
@@ -13,6 +14,7 @@ export type ProductCardProps = {
   brand: string
   img: string
   price: string
+  rating: number
 }
 
 export const ProductCard = ({
@@ -20,7 +22,8 @@ export const ProductCard = ({
   title,
   brand,
   img,
-  price
+  price,
+  rating
 }: ProductCardProps) => (
   <S.Wrapper>
     <Link href={`product/${id}`} passHref>
@@ -42,6 +45,10 @@ export const ProductCard = ({
           <S.Brand>{brand}</S.Brand>
         </S.Info>
       </Link>
+      <S.RatingWrapper>
+        <RatingView ratingValue={rating} />
+      </S.RatingWrapper>
+
       <S.BuyBox>
         <S.Price>{formatPrice(Number(price))}</S.Price>
         <CartButton />

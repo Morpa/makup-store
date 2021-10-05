@@ -12,10 +12,11 @@ export default {
   },
   args: {
     id: '1',
-    title: 'Lippie Pencil',
+    title: 'Lippie Pencil Lippie Pencil',
     brand: 'Colourpop',
     img: 'https://source.unsplash.com/user/morpa/300x140',
-    price: '5.0'
+    price: '5.0',
+    rating: 4
   }
 } as Meta
 

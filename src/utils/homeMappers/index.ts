@@ -9,7 +9,10 @@ export const productsMapper = (products: ProductApiResponse[]) => {
           brand: item.brand?.toLocaleUpperCase(),
           img: `https:${item.api_featured_image}`,
           price:
-            Number(item.price) > 0 ? item.price : Math.floor(Math.random() * 50)
+            Number(item.price) > 0
+              ? item.price
+              : Math.floor(Math.random() * 50),
+          rating: Number(item?.rating) > 0 ? Number(item.rating) : Number(0)
         }
       })
     : {}

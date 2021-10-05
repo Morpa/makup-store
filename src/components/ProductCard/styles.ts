@@ -31,7 +31,7 @@ export const Content = styled.div`
 `
 
 export const Info = styled.a`
-  max-width: calc(100% - 2.5rem);
+  max-width: calc(70% - 2.5rem);
   text-decoration: none;
 `
 
@@ -52,13 +52,13 @@ export const Brand = styled.h4`
   `}
 `
 
-export const FavButton = styled.div`
+export const RatingWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     position: absolute;
     right: -1rem;
     top: -0.5rem;
-    cursor: pointer;
+
     svg {
       width: 2.5rem;
     }

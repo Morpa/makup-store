@@ -12,7 +12,7 @@ describe('productsMapper', () => {
         image_link: 'image_link',
         product_link: 'product_link',
         description: 'description',
-        rating: 'rating',
+        rating: '5',
         category: 'category',
         product_type: 'product_type',
         tag_list: [],
@@ -28,7 +28,8 @@ describe('productsMapper', () => {
         title: 'name',
         brand: 'BRAND',
         img: 'https://api_featured_image',
-        price: '5'
+        price: '5',
+        rating: 5
       }
     ])
   })

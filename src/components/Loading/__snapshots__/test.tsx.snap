@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading /> should render the heading 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 3.2rem;
+}
+
+.c1 {
+  color: #FAFAFA;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 3.2rem;
+}
+
+@media (max-width:768px) {
+  .c0 {
+    min-width: 22rem;
+  }
+}
+
+<div
+  class="c0"
+>
+  <img
+    alt="Loading more products"
+    height="60"
+    role="img"
+    src="/img/loading.gif"
+    width="60"
+  />
+  <p
+    class="c1"
+  >
+    Loading...
+  </p>
+</div>
+`;

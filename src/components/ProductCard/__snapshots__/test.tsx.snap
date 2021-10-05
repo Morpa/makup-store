@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ProductCard /> should render correctly 1`] = `
-.c9 {
+.c10 {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
 }
 
-.c8 {
+.c9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -32,19 +32,19 @@ exports[`<ProductCard /> should render correctly 1`] = `
   font-size: 1.2rem;
 }
 
-.c8:focus {
+.c9:focus {
   outline: 1px dashed;
 }
 
-.c8:hover {
+.c9:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
-.c8 svg {
+.c9 svg {
   width: 1.5rem;
 }
 
-.c8 svg + span {
+.c9 svg + span {
   margin-left: 0.8rem;
 }
 
@@ -88,7 +88,7 @@ exports[`<ProductCard /> should render correctly 1`] = `
 }
 
 .c3 {
-  max-width: calc(100% - 2.5rem);
+  max-width: calc(70% - 2.5rem);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -107,6 +107,17 @@ exports[`<ProductCard /> should render correctly 1`] = `
 }
 
 .c6 {
+  color: #F231A5;
+  position: absolute;
+  right: -1rem;
+  top: -0.5rem;
+}
+
+.c6 svg {
+  width: 2.5rem;
+}
+
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -122,7 +133,7 @@ exports[`<ProductCard /> should render correctly 1`] = `
   margin-top: 0.8rem;
 }
 
-.c7 {
+.c8 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -174,18 +185,96 @@ exports[`<ProductCard /> should render correctly 1`] = `
     <div
       class="c6"
     >
+      <span
+        class=""
+      >
+        <span
+          style="color: rgb(241, 165, 69); width: 25px; height: 25px; display: inline-flex;"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            viewBox="0 0 24 24"
+            width="25"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+        </span>
+        <span
+          style="color: rgb(241, 165, 69); width: 25px; height: 25px; display: inline-flex;"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            viewBox="0 0 24 24"
+            width="25"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+        </span>
+        <span
+          style="color: rgb(241, 165, 69); width: 25px; height: 25px; display: inline-flex;"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            viewBox="0 0 24 24"
+            width="25"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+        </span>
+        <span
+          style="color: rgb(241, 165, 69); width: 25px; height: 25px; display: inline-flex;"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            viewBox="0 0 24 24"
+            width="25"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+        </span>
+        <span
+          style="color: rgb(204, 204, 204); width: 25px; height: 25px; display: inline-flex;"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            viewBox="0 0 24 24"
+            width="25"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="c7"
+    >
       <div
-        class="c7"
+        class="c8"
       >
         5,00 €
       </div>
       <button
         aria-label="Add to cart"
-        class="c8"
+        class="c9"
       >
         <svg
           aria-hidden="true"
-          class="c9"
+          class="c10"
           fill="currentColor"
           focusable="false"
           viewBox="0 0 24 24"
