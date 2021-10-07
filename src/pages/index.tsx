@@ -1,43 +1,93 @@
 import { Home, HomeTemplateProps } from 'templates/Home'
 
 import { api, ProductApiResponse } from 'services/api'
+import { bannersMapper, highlightMapper, productsMapper } from 'utils/mappers'
+import { initializeApollo } from 'utils/apollo'
+import { QUERY_PRODUCTS } from 'graphql/queries/products'
 import {
-  bannersMapper,
-  highlightMapper,
-  productsMapper
-} from 'utils/homeMappers'
+  QueryProducts,
+  QueryProductsVariables
+} from 'graphql/generated/QueryProducts'
 
 export default function Index(props: HomeTemplateProps) {
-  return <Home {...props} />
+  return <div>oi</div>
 }
 
 export async function getStaticProps() {
-  const { data: blushProductsData } = await api.get<ProductApiResponse[]>(
-    '/products.json?product_type=blush'
-  )
+  const apolloClient = initializeApollo()
 
-  const { data: eyeshadowProductsData } = await api.get<ProductApiResponse[]>(
-    '/products.json?product_type=eyeshadow'
-  )
+  const blushProductsData = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 6, offset: 4, productType: 'blush' },
+    fetchPolicy: 'no-cache'
+  })
 
-  const { data: lipstickProductsData } = await api.get<ProductApiResponse[]>(
-    '/products.json?product_type=lipstick'
-  )
+  const { data: eyeshadowProductsData } = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 6, offset: 4, productType: 'eyeshadow' },
+    fetchPolicy: 'no-cache'
+  })
 
-  const { data: nailpolishProductsData } = await api.get<ProductApiResponse[]>(
-    '/products.json?product_type=nail_polish'
-  )
+  const { data: foundationProductsData } = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 6, offset: 4, productType: 'foundation' },
+    fetchPolicy: 'no-cache'
+  })
 
-  const { data: mascaraProductsData } = await api.get<ProductApiResponse[]>(
-    '/products.json?product_type=mascara'
-  )
+  const { data: liplinerProductsData } = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 6, offset: 4, productType: 'lip_liner' },
+    fetchPolicy: 'no-cache'
+  })
+
+  const { data: mascaraProductsData } = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 6, offset: 4, productType: 'mascara' },
+    fetchPolicy: 'no-cache'
+  })
+
+  const { data: nailPolishProductsData } = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 6, offset: 4, productType: 'nail_polish' },
+    fetchPolicy: 'no-cache'
+  })
+
+  const { data: lipstickProductsData } = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 6, offset: 4, productType: 'Lipstick' },
+    fetchPolicy: 'no-cache'
+  })
 
   return {
     revalidate: 60 * 60 * 24, // 1 day
     props: {
+      initialApolloState: apolloClient.cache.extract(),
+      blushProducts: productsMapper(blushProductsData.data.products.product),
+      blushTitle: 'New Blushs'
+      /*
       banners: bannersMapper(mascaraProductsData.slice(0, 3)),
-      blushProducts: productsMapper(blushProductsData.slice(1, 7)),
-      blushTitle: 'New Blushs',
+
       eyeshadowProducts: productsMapper(eyeshadowProductsData.slice(0, 6)),
       eyeShadowTitle: 'Eyeshadow',
       lipstickProducts: productsMapper(lipstickProductsData.slice(0, 6)),
@@ -61,7 +111,7 @@ export async function getStaticProps() {
         'Recommended',
         'Hot collection',
         'right'
-      )[0]
+      )[0] */
     }
   }
 }

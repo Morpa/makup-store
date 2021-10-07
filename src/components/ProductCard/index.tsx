@@ -35,6 +35,7 @@ export const ProductCard = ({
           blurDataURL={img}
           layout="fill"
           objectFit="cover"
+          priority
         />
       </S.ImageBox>
     </Link>

@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
 import { ParsedUrlQueryInput } from 'querystring'
+
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
-/* import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter' */
+import { parseQueryStringToFilter } from 'utils/filters'
 
 import { Base } from 'templates/Base'
 
@@ -13,38 +14,35 @@ import { Loading } from 'components/Loading'
 /* import Empty from 'components/Empty' */
 
 import * as S from './styles'
+import { ProductApiResponse } from 'services/api'
+import { productsMapper } from 'utils/homeMappers'
 
-export type GamesTemplateProps = {
+export type ProductsTemplateProps = {
   filterItems: ItemProps[]
+  productsToSHow: ProductApiResponse[]
 }
 
-export const ProductsTemplate = ({ filterItems }: GamesTemplateProps) => {
+export const ProductsTemplate = ({
+  filterItems,
+  productsToSHow
+}: ProductsTemplateProps) => {
   const { push, query } = useRouter()
 
-  /* const { data, loading, fetchMore } = useQueryGames({
-    notifyOnNetworkStatusChange: true,
-    variables: {
-      limit: 15,
-      where: parseQueryStringToWhere({ queryString: query, filterItems }),
-      sort: query.sort as string | null
-    }
-  }) */
+  if (!productsToSHow) return <Loading />
 
-  /* if (!data) return <Loading />
+  /* const { games, gamesConnection } = data
 
-  const { games, gamesConnection } = data */
-
-  /* const hasMoreGames = games.length < (gamesConnection?.values?.length || 0)
+  const hasMoreGames = games.length < (gamesConnection?.values?.length || 0) */
 
   const handleFilter = (items: ParsedUrlQueryInput) => {
     push({
-      pathname: '/games',
+      pathname: '/products',
       query: items
     })
     return
   }
 
-  const handleShowMore = () => {
+  /* const handleShowMore = () => {
     fetchMore({ variables: { limit: 15, start: data?.games.length } })
   } */
 
@@ -61,37 +59,23 @@ export const ProductsTemplate = ({ filterItems }: GamesTemplateProps) => {
         />
 
         <section>
-          {data?.games.length ? (
-            <>
-              <Grid>
-                {data?.games.map((game) => (
-                  <ProductCard
-                    id={game.id}
-                    key={game.slug}
-                    title={game.name}
-                    slug={game.slug}
-                    developer={game.developers[0].name}
-                    img={`${getImageUrl(game.cover!.url)}`}
-                    price={game.price}
-                  />
-                ))}
-              </Grid>
-
-              {hasMoreGames && (
-                <S.ShowMore>
-                  {loading ? (
-                    <Loading />
-                  ) : (
-                    <S.ShowMoreButton role="button" onClick={handleShowMore}>
-                      <p>Show More</p>
-                      <ArrowDown size={35} />
-                    </S.ShowMoreButton>
-                  )}
-                </S.ShowMore>
-              )}
-            </>
+          {productsToSHow.length ? (
+            <Grid>
+              {/*  {productsToSHow.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id.toString()}
+                  title={product.name}
+                  brand={product.brand}
+                  price={product.price}
+                  rating={Number(product.rating)}
+                  img={product.api_featured_image}
+                />
+              ))} */}
+              <div>oi</div>
+            </Grid>
           ) : (
-            <div>NO RESULT</div>
+            <div>NOK</div>
           )}
         </section>
       </S.Main>

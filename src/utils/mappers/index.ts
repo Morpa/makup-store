@@ -1,12 +1,12 @@
-import { ProductApiResponse } from 'services/api'
+import { QueryProducts_products_product } from 'graphql/generated/QueryProducts'
 
-export const productsMapper = (products: ProductApiResponse[]) => {
+export const productsMapper = (products: QueryProducts_products_product[]) => {
   return products
     ? products.map((item) => {
         return {
           id: item.id,
           title: item.name,
-          brand: item.brand?.toLocaleUpperCase(),
+          brand: (item.brand?.length && item.brand?.toLocaleUpperCase()) || '',
           img: `https:${item.api_featured_image}`,
           price:
             Number(item.price) > 0
@@ -18,7 +18,7 @@ export const productsMapper = (products: ProductApiResponse[]) => {
     : {}
 }
 
-export const bannersMapper = (products: ProductApiResponse[]) => {
+export const bannersMapper = (products: QueryProducts_products_product[]) => {
   return products
     ? products.map((item) => {
         return {
@@ -39,7 +39,7 @@ export const highlightMapper = (
   alignment: string
 ) => {
   return products
-    ? products.map((item: ProductApiResponse) => {
+    ? products.map((item: QueryProducts_products_product) => {
         return {
           title,
           subtitle,

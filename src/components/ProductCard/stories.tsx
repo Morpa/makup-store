@@ -14,7 +14,7 @@ export default {
     id: '1',
     title: 'Lippie Pencil Lippie Pencil',
     brand: 'Colourpop',
-    img: 'https://source.unsplash.com/user/morpa/300x140',
+    img: 'https://source.unsplash.com/user/morpa/300x300',
     price: '5.0',
     rating: 4
   }
