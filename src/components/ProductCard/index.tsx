@@ -14,7 +14,7 @@ export type ProductCardProps = {
   brand: string
   img: string
   price: string
-  rating: number
+  rating: string
 }
 
 export const ProductCard = ({
@@ -47,7 +47,7 @@ export const ProductCard = ({
         </S.Info>
       </Link>
       <S.RatingWrapper>
-        <RatingView ratingValue={rating} />
+        <RatingView ratingValue={Number(rating)} />
       </S.RatingWrapper>
 
       <S.BuyBox>

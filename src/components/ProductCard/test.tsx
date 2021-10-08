@@ -5,7 +5,7 @@ import theme from 'styles/theme'
 import { ProductCard } from '.'
 
 const props = {
-  id: '1',
+  id: 1,
   title: 'Lippie Pencil',
   brand: 'Colourpop',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',

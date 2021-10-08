@@ -92,7 +92,7 @@ type ProductConnection {
 """"""
 type Product {
   """"""
-  id: Int!
+  id: String!
 
   """"""
   brand: String!

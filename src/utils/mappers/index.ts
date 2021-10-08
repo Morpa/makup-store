@@ -2,12 +2,12 @@ import { QueryProducts_products_product } from 'graphql/generated/QueryProducts'
 
 export const productsMapper = (products: QueryProducts_products_product[]) => {
   return products
-    ? products.map((item) => {
+    ? products?.map((item) => {
         return {
           id: item.id,
           title: item.name,
           brand: (item.brand?.length && item.brand?.toLocaleUpperCase()) || '',
-          img: `https:${item.api_featured_image}`,
+          img: item.api_featured_image,
           price:
             Number(item.price) > 0
               ? item.price
@@ -20,9 +20,9 @@ export const productsMapper = (products: QueryProducts_products_product[]) => {
 
 export const bannersMapper = (products: QueryProducts_products_product[]) => {
   return products
-    ? products.map((item) => {
+    ? products?.map((item) => {
         return {
-          img: `https:${item.api_featured_image}`,
+          img: item.api_featured_image,
           title: item.name,
           buttonLabel: 'Buy now',
           buttonLink: `/product/${item.id}`
@@ -43,7 +43,7 @@ export const highlightMapper = (
         return {
           title,
           subtitle,
-          backgroundImage: `https:${item.api_featured_image}`,
+          backgroundImage: item.api_featured_image,
           buttonLabel: 'Buy now',
           buttonLink: `/product/${item.id}`,
           alignment

@@ -16,8 +16,8 @@ export type HomeTemplateProps = {
   eyeShadowTitle: string
   lipstickProducts: ProductCardProps[]
   lipstickTitle: string
-  nailpolishProducts: ProductCardProps[]
-  nailPolishTitle: string
+  foundationProducts: ProductCardProps[]
+  foudationTitle: string
   mostPopularHighlight: HighlightProps
   upcomingHighlight: HighlightProps
   recommendedHighlight: HighlightProps
@@ -31,8 +31,8 @@ export const Home = ({
   eyeShadowTitle,
   lipstickProducts,
   lipstickTitle,
-  nailpolishProducts,
-  nailPolishTitle,
+  foundationProducts,
+  foudationTitle,
   mostPopularHighlight,
   upcomingHighlight,
   recommendedHighlight
@@ -61,9 +61,9 @@ export const Home = ({
     />
 
     <ShowCase
-      title={nailPolishTitle}
+      title={foudationTitle}
       highlight={recommendedHighlight}
-      products={nailpolishProducts}
+      products={foundationProducts}
     />
   </Base>
 )

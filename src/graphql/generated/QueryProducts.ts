@@ -9,7 +9,7 @@
 
 export interface QueryProducts_products_product {
   __typename: "Product";
-  id: number;
+  id: string;
   name: string;
   brand: string;
   price: string | null;

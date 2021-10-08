@@ -9,7 +9,7 @@
 
 export interface ProductFragment {
   __typename: "Product";
-  id: number;
+  id: string;
   name: string;
   brand: string;
   price: string | null;

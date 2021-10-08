@@ -1,4 +1,4 @@
-import { ProductApiResponse } from 'services/api'
+import { QueryProducts_products_product } from 'graphql/generated/QueryProducts'
 import { bannersMapper, highlightMapper, productsMapper } from '.'
 
 describe('productsMapper', () => {
@@ -9,25 +9,17 @@ describe('productsMapper', () => {
         brand: 'brand',
         name: 'name',
         price: '5',
-        image_link: 'image_link',
-        product_link: 'product_link',
-        description: 'description',
         rating: '5',
-        category: 'category',
-        product_type: 'product_type',
-        tag_list: [],
-        product_api_url: 'product_api_url',
-        api_featured_image: '//api_featured_image',
-        product_colors: []
+        api_featured_image: '//api_featured_image'
       }
-    ] as ProductApiResponse[]
+    ] as QueryProducts_products_product[]
 
     expect(productsMapper(product)).toStrictEqual([
       {
         id: 1,
         title: 'name',
         brand: 'BRAND',
-        img: 'https://api_featured_image',
+        img: '//api_featured_image',
         price: '5',
         rating: 5
       }
@@ -47,23 +39,15 @@ describe('bannersMapper', () => {
         brand: 'brand',
         name: 'name',
         price: '5',
-        image_link: 'image_link',
-        product_link: 'product_link',
-        description: 'description',
         rating: 'rating',
-        category: 'category',
-        product_type: 'product_type',
-        tag_list: [],
-        product_api_url: 'product_api_url',
-        api_featured_image: '//api_featured_image',
-        product_colors: []
+        api_featured_image: '//api_featured_image'
       }
-    ] as ProductApiResponse[]
+    ] as QueryProducts_products_product[]
 
     expect(bannersMapper(product)).toStrictEqual([
       {
         title: 'name',
-        img: 'https://api_featured_image',
+        img: '//api_featured_image',
         buttonLabel: 'Buy now',
         buttonLink: '/product/1'
       }
@@ -83,18 +67,10 @@ describe('highlightMapper', () => {
         brand: 'brand',
         name: 'name',
         price: '5',
-        image_link: 'image_link',
-        product_link: 'product_link',
-        description: 'description',
         rating: 'rating',
-        category: 'category',
-        product_type: 'product_type',
-        tag_list: [],
-        product_api_url: 'product_api_url',
-        api_featured_image: '//api_featured_image',
-        product_colors: []
+        api_featured_image: '//api_featured_image'
       }
-    ] as ProductApiResponse[]
+    ] as QueryProducts_products_product[]
 
     expect(
       highlightMapper(product, 'Upcoming', 'New collection', 'left')
@@ -102,7 +78,7 @@ describe('highlightMapper', () => {
       {
         title: 'Upcoming',
         subtitle: 'New collection',
-        backgroundImage: 'https://api_featured_image',
+        backgroundImage: '//api_featured_image',
         buttonLabel: 'Buy now',
         buttonLink: '/product/1',
         alignment: 'left'

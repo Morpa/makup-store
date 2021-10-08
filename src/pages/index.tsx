@@ -1,6 +1,5 @@
 import { Home, HomeTemplateProps } from 'templates/Home'
 
-import { api, ProductApiResponse } from 'services/api'
 import { bannersMapper, highlightMapper, productsMapper } from 'utils/mappers'
 import { initializeApollo } from 'utils/apollo'
 import { QUERY_PRODUCTS } from 'graphql/queries/products'
@@ -10,7 +9,7 @@ import {
 } from 'graphql/generated/QueryProducts'
 
 export default function Index(props: HomeTemplateProps) {
-  return <div>oi</div>
+  return <Home {...props} />
 }
 
 export async function getStaticProps() {
@@ -25,16 +24,25 @@ export async function getStaticProps() {
     fetchPolicy: 'no-cache'
   })
 
-  const { data: eyeshadowProductsData } = await apolloClient.query<
+  const eyeshadowProductsData = await apolloClient.query<
     QueryProducts,
     QueryProductsVariables
   >({
     query: QUERY_PRODUCTS,
-    variables: { limit: 6, offset: 4, productType: 'eyeshadow' },
+    variables: { limit: 6, offset: 1, productType: 'eyeshadow' },
     fetchPolicy: 'no-cache'
   })
 
-  const { data: foundationProductsData } = await apolloClient.query<
+  const bronzerProductsData = await apolloClient.query<
+    QueryProducts,
+    QueryProductsVariables
+  >({
+    query: QUERY_PRODUCTS,
+    variables: { limit: 3, offset: 2, productType: 'bronzer' },
+    fetchPolicy: 'no-cache'
+  })
+
+  const foundationProductsData = await apolloClient.query<
     QueryProducts,
     QueryProductsVariables
   >({
@@ -43,39 +51,12 @@ export async function getStaticProps() {
     fetchPolicy: 'no-cache'
   })
 
-  const { data: liplinerProductsData } = await apolloClient.query<
+  const lipstickProductsData = await apolloClient.query<
     QueryProducts,
     QueryProductsVariables
   >({
     query: QUERY_PRODUCTS,
-    variables: { limit: 6, offset: 4, productType: 'lip_liner' },
-    fetchPolicy: 'no-cache'
-  })
-
-  const { data: mascaraProductsData } = await apolloClient.query<
-    QueryProducts,
-    QueryProductsVariables
-  >({
-    query: QUERY_PRODUCTS,
-    variables: { limit: 6, offset: 4, productType: 'mascara' },
-    fetchPolicy: 'no-cache'
-  })
-
-  const { data: nailPolishProductsData } = await apolloClient.query<
-    QueryProducts,
-    QueryProductsVariables
-  >({
-    query: QUERY_PRODUCTS,
-    variables: { limit: 6, offset: 4, productType: 'nail_polish' },
-    fetchPolicy: 'no-cache'
-  })
-
-  const { data: lipstickProductsData } = await apolloClient.query<
-    QueryProducts,
-    QueryProductsVariables
-  >({
-    query: QUERY_PRODUCTS,
-    variables: { limit: 6, offset: 4, productType: 'Lipstick' },
+    variables: { limit: 6, offset: 4, productType: 'lipstick' },
     fetchPolicy: 'no-cache'
   })
 
@@ -83,35 +64,39 @@ export async function getStaticProps() {
     revalidate: 60 * 60 * 24, // 1 day
     props: {
       initialApolloState: apolloClient.cache.extract(),
+      blushTitle: 'New Blushs',
       blushProducts: productsMapper(blushProductsData.data.products.product),
-      blushTitle: 'New Blushs'
-      /*
-      banners: bannersMapper(mascaraProductsData.slice(0, 3)),
-
-      eyeshadowProducts: productsMapper(eyeshadowProductsData.slice(0, 6)),
       eyeShadowTitle: 'Eyeshadow',
-      lipstickProducts: productsMapper(lipstickProductsData.slice(0, 6)),
+      eyeshadowProducts: productsMapper(
+        eyeshadowProductsData.data.products.product
+      ),
+      foundationTitle: 'Foundation',
+      foundationProducts: productsMapper(
+        foundationProductsData.data.products.product
+      ),
       lipstickTitle: 'Hots Lipsticks',
-      nailpolishProducts: productsMapper(nailpolishProductsData.slice(0, 6)),
-      nailPolishTitle: 'Nail Polish',
+      lipstickProducts: productsMapper(
+        lipstickProductsData.data.products.product
+      ),
       mostPopularHighlight: highlightMapper(
-        eyeshadowProductsData.slice(),
+        eyeshadowProductsData.data.products.product,
         'New collection',
         'Most Popular',
         'right'
       )[0],
       upcomingHighlight: highlightMapper(
-        lipstickProductsData.slice(),
+        lipstickProductsData.data.products.product,
         'Upcoming',
         'New collection',
         'left'
-      )[0],
+      )[5],
       recommendedHighlight: highlightMapper(
-        nailpolishProductsData.slice(),
+        foundationProductsData.data.products.product,
         'Recommended',
         'Hot collection',
         'right'
-      )[0] */
+      )[0],
+      banners: bannersMapper(bronzerProductsData.data.products.product)
     }
   }
 }
