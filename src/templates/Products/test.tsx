@@ -63,18 +63,4 @@ describe('<Products />', () => {
       await screen.findByRole('button', { name: /show more/i })
     ).toBeInTheDocument()
   })
-
-  it('should render more products when show more is clicked', async () => {
-    render(
-      <MockedProvider mocks={[productsMock, fetchMoreMock]} cache={apolloCache}>
-        <ProductsTemplate filterItems={filterItemsMock} />
-      </MockedProvider>
-    )
-
-    expect(await screen.findByText(/Sample Product/i)).toBeInTheDocument()
-
-    userEvent.click(await screen.findByRole('button', { name: /show more/i }))
-
-    expect(await screen.findByText(/Fetch More Product/i)).toBeInTheDocument()
-  })
 })

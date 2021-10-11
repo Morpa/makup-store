@@ -27,7 +27,7 @@ export const ProductsTemplate = ({ filterItems }: ProductsTemplateProps) => {
   const { data, loading, fetchMore } = useQueryProducts({
     notifyOnNetworkStatusChange: true,
     variables: {
-      limit: 9,
+      limit: newPerPage,
       orderField: 'price',
       productType: query.productType as string | null,
       order: query.sortFields as string | null
@@ -47,10 +47,10 @@ export const ProductsTemplate = ({ filterItems }: ProductsTemplateProps) => {
   }
 
   const handleShowMore = () => {
-    setNewPerPage(newPerPage! + 9)
+    setNewPerPage(newPerPage + 9)
 
     fetchMore({
-      variables: { limit: newPerPage! }
+      variables: { limit: newPerPage }
     })
   }
 
