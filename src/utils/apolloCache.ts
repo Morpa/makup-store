@@ -5,7 +5,13 @@ export default new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
-        products: concatPagination()
+        QueryProducts: concatPagination([
+          'offset',
+          'limit',
+          'filter',
+          'order',
+          'orderField'
+        ])
       }
     }
   }

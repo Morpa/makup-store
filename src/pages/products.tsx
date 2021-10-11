@@ -1,41 +1,51 @@
-import { Loading } from 'components/Loading'
-
 import { GetServerSidePropsContext } from 'next'
-import { api, ProductApiResponse } from 'services/api'
+
+import { initializeApollo } from 'utils/apollo'
+import { QUERY_PRODUCTS } from 'graphql/queries/products'
+import {
+  QueryProducts,
+  QueryProductsVariables
+} from 'graphql/generated/QueryProducts'
+import { sortFields, productTypes } from 'utils/filters/fields'
 
 import { ProductsTemplate, ProductsTemplateProps } from 'templates/Products'
 
-import { sortFields, productTypes } from 'utils/filters/fields'
-import { productsMapper } from 'utils/homeMappers'
-
-export default function GamesPage(props: ProductsTemplateProps) {
+export default function ProductsPage(props: ProductsTemplateProps) {
   return <ProductsTemplate {...props} />
 }
 
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
+  const apolloClient = initializeApollo()
+
   const filterPrice = {
-    title: 'Price',
-    name: 'price_lte',
+    title: 'Order by name',
+    name: 'sortFields',
     type: 'radio',
     fields: sortFields
   }
 
   const filterTypes = {
     title: 'Product Types',
-    name: 'types',
+    name: 'productType',
     type: 'radio',
     fields: productTypes
   }
 
   const filterItems = [filterPrice, filterTypes]
 
-  const { data: productsToSHow } = await api.get<ProductApiResponse[]>(
-    `products.json`
-  )
+  await apolloClient.query<QueryProducts, QueryProductsVariables>({
+    query: QUERY_PRODUCTS,
+    variables: {
+      limit: 9,
+      productType: query.productType as string | null,
+      order: (query.sortFields as string | null)?.split(':', 2)[0],
+      orderField: (query.sortFields as string | null)?.split(':', 2)[1]
+    }
+  })
 
   return {
     props: {
-      productsToSHow: productsMapper(productsToSHow.slice(0, 9)),
+      initialApolloState: apolloClient.cache.extract(),
       filterItems
     }
   }

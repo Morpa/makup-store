@@ -20,6 +20,7 @@ export interface QueryProducts_products_product {
 export interface QueryProducts_products {
   __typename: "ProductConnection";
   product: QueryProducts_products_product[];
+  count: number;
 }
 
 export interface QueryProducts {
@@ -30,4 +31,6 @@ export interface QueryProductsVariables {
   limit?: number | null;
   offset?: number | null;
   productType?: string | null;
+  order?: string | null;
+  orderField?: string | null;
 }

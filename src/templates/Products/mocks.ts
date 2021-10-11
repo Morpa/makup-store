@@ -1,44 +1,28 @@
-import { QUERY_GAMES } from 'graphql/queries/games'
+import { QUERY_PRODUCTS } from 'graphql/queries/products'
 
-export const noGamesMock = {
+export const productsMock = {
   request: {
-    query: QUERY_GAMES,
-    variables: { limit: 15, where: {} }
-  },
-  result: {
-    data: {
-      games: [],
-      gamesConnection: {
-        values: [],
-        __typename: 'GameConnection'
-      }
+    query: QUERY_PRODUCTS,
+    variables: {
+      limit: 9,
+      orderField: 'price'
     }
-  }
-}
-
-export const gamesMock = {
-  request: {
-    query: QUERY_GAMES,
-    variables: { limit: 15, where: {} }
   },
   result: {
     data: {
-      games: [
-        {
-          id: '1',
-          name: 'Sample Game',
-          slug: 'sample-game',
-          price: 518.39,
-          developers: [{ name: 'sample developer' }],
-          cover: {
-            url: 'sample-game.jpg'
-          },
-          __typename: 'Game'
-        }
-      ],
-      gamesConnection: {
-        values: [{ id: '1' }, { id: '2' }],
-        __typename: 'GameConnection'
+      products: {
+        product: [
+          {
+            id: '1048',
+            name: 'Sample Product',
+            brand: 'Brand',
+            price: '5.0',
+            rating: null,
+            api_featured_image: 'https://s3.amazonaws.com/donovanbailey',
+            __typename: 'Product'
+          }
+        ],
+        count: 891
       }
     }
   }
@@ -46,27 +30,27 @@ export const gamesMock = {
 
 export const fetchMoreMock = {
   request: {
-    query: QUERY_GAMES,
-    variables: { limit: 15, where: {}, start: 1 }
+    query: QUERY_PRODUCTS,
+    variables: {
+      limit: 9,
+      orderField: 'price'
+    }
   },
   result: {
     data: {
-      games: [
-        {
-          id: '2',
-          name: 'Fetch More Game',
-          slug: 'fetch-more',
-          price: 518.39,
-          developers: [{ name: 'sample developer' }],
-          cover: {
-            url: 'sample-game.jpg'
-          },
-          __typename: 'Game'
-        }
-      ],
-      gamesConnection: {
-        values: [{ id: '1' }, { id: '2' }],
-        __typename: 'GameConnection'
+      products: {
+        product: [
+          {
+            id: '1042',
+            name: 'Fetch More Product',
+            brand: 'Wow',
+            price: '5.0',
+            rating: null,
+            api_featured_image: 'https://s3.amazonaws.com/donovanbailey',
+            __typename: 'Product'
+          }
+        ],
+        count: 891
       }
     }
   }

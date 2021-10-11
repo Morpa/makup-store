@@ -13,8 +13,8 @@ export type ProductCardProps = {
   title: string
   brand: string
   img: string
-  price: string
-  rating: string
+  price: string | null
+  rating: string | null
 }
 
 export const ProductCard = ({
@@ -35,7 +35,6 @@ export const ProductCard = ({
           blurDataURL={img}
           layout="fill"
           objectFit="cover"
-          priority
         />
       </S.ImageBox>
     </Link>

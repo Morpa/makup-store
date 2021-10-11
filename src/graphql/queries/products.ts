@@ -7,17 +7,26 @@ import {
 } from 'graphql/generated/QueryProducts'
 
 export const QUERY_PRODUCTS = gql`
-  query QueryProducts($limit: Int, $offset: Int, $productType: String) {
+  query QueryProducts(
+    $limit: Int
+    $offset: Int
+    $productType: String
+    $order: String
+    $orderField: String
+  ) {
     products(
       query: {
         limit: $limit
         offset: $offset
         filter: { product_type: $productType }
+        order: $order
+        orderField: $orderField
       }
     ) {
       product {
         ...ProductFragment
       }
+      count
     }
   }
   ${ProductFragment}

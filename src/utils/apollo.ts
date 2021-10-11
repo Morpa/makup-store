@@ -6,18 +6,14 @@ import apolloCache from './apolloCache'
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createApolloClient() {
-  const httpLink = new HttpLink({
-    uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql/`
-  })
-
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: httpLink,
+    link: new HttpLink({ uri: process.env.NEXT_PUBLIC_API_URL }),
     cache: apolloCache
   })
 }
 
-export function initializeApollo(initialState = {}) {
+export function initializeApollo(initialState = null) {
   const apolloClientGlobal = apolloClient ?? createApolloClient()
 
   if (initialState) {
@@ -31,7 +27,7 @@ export function initializeApollo(initialState = {}) {
   return apolloClient
 }
 
-export function useApollo(initialState = {}) {
+export function useApollo(initialState = null) {
   const store = useMemo(() => initializeApollo(initialState), [initialState])
   return store
 }

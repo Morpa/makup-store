@@ -12,8 +12,6 @@ describe('<ExploreSidebar />', () => {
   it('should render the headings', () => {
     render(<ExploreSidebar items={items} onFilter={jest.fn} />)
 
-    expect(screen.getByRole('heading', { name: /price/i })).toBeInTheDocument()
-
     expect(
       screen.getByRole('heading', { name: /sort by/i })
     ).toBeInTheDocument()
@@ -23,10 +21,6 @@ describe('<ExploreSidebar />', () => {
 
   it('should render inputs', () => {
     render(<ExploreSidebar items={items} onFilter={jest.fn} />)
-
-    expect(
-      screen.getByRole('checkbox', { name: /under \$50/i })
-    ).toBeInTheDocument()
 
     expect(
       screen.getByRole('radio', { name: /low to high/i })
@@ -51,7 +45,7 @@ describe('<ExploreSidebar />', () => {
       />
     )
 
-    expect(screen.getByRole('checkbox', { name: /vegan/i })).toBeChecked()
+    expect(screen.getByRole('radio', { name: /vegan/i })).toBeChecked()
 
     expect(screen.getByRole('radio', { name: /low to high/i })).toBeChecked()
   })
@@ -69,25 +63,6 @@ describe('<ExploreSidebar />', () => {
 
     expect(onFilter).toBeCalledWith({
       types: ['vegan'],
-      sort_by: 'low-to-high'
-    })
-  })
-
-  it('should filter checked values', () => {
-    const onFilter = jest.fn()
-
-    render(<ExploreSidebar items={items} onFilter={onFilter} />)
-
-    userEvent.click(screen.getByLabelText(/vegan/i))
-
-    userEvent.click(screen.getByLabelText(/natural/i))
-
-    userEvent.click(screen.getByLabelText(/low to high/i))
-
-    expect(onFilter).toHaveBeenCalledTimes(4)
-
-    expect(onFilter).toBeCalledWith({
-      types: ['vegan', 'natural'],
       sort_by: 'low-to-high'
     })
   })
