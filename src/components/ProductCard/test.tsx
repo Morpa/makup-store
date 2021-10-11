@@ -5,12 +5,12 @@ import theme from 'styles/theme'
 import { ProductCard } from '.'
 
 const props = {
-  id: 1,
+  id: '1',
   title: 'Lippie Pencil',
   brand: 'Colourpop',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
   price: '5.0',
-  rating: 4
+  rating: '4'
 }
 
 describe('<ProductCard />', () => {

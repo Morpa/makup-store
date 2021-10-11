@@ -5,7 +5,7 @@ describe('productsMapper', () => {
   it('should return the right format when product is mapped', () => {
     const product = [
       {
-        id: 1,
+        id: '1',
         brand: 'brand',
         name: 'name',
         price: '5',
@@ -16,7 +16,7 @@ describe('productsMapper', () => {
 
     expect(productsMapper(product)).toStrictEqual([
       {
-        id: 1,
+        id: '1',
         title: 'name',
         brand: 'BRAND',
         img: '//api_featured_image',
@@ -35,7 +35,7 @@ describe('bannersMapper', () => {
   it('should return the right format when banners is mapped', () => {
     const product = [
       {
-        id: 1,
+        id: '1',
         brand: 'brand',
         name: 'name',
         price: '5',
@@ -63,7 +63,7 @@ describe('highlightMapper', () => {
   it('should return the right format when highlightMapper is mapped', () => {
     const product = [
       {
-        id: 1,
+        id: '1',
         brand: 'brand',
         name: 'name',
         price: '5',

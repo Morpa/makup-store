@@ -8,6 +8,6 @@ module.exports = withPWA({
     disable: !isProd
   },
   images: {
-    domains: ['localhost', 's3.amazonaws.com', 'cdn.shopify.com','source.unsplash.com']
+    domains: ['localhost', 's3.amazonaws.com', 'makeup-api-graphql.herokuapp.com','source.unsplash.com']
   }
 })

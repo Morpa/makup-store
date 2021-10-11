@@ -35,10 +35,6 @@ This project uses lot of stuff as:
 
 ## Getting Started
 
-To consume the data, I created a GraphQL wrapper from the Makeup API rest, where you can see it [here](https://github.com/Morpa/Makeup-Api-GraphQL)
-
-If you wnat run this repo localy, you need clone the API first. Follow link above.
-
 First, run the development server:
 
 ```bash
